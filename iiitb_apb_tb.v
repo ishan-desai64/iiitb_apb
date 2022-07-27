@@ -67,7 +67,7 @@
   end
 
     task Write_slave1;
-	 //    reg [7:0]mem [0:15];
+	    reg [7:0]mem [0:15];
 
      begin
  	transfer =1;
@@ -77,17 +77,17 @@
              	data = i;
 		apb_write_data = 2*i;
 		apb_write_paddr =  {1'b0,data};
-	//	mem[i] = (2*i);
+		mem[i] = (2*i);
                 
 	 end 
 	end
-    //	 $writememh("check.mem", mem);
+    	 $writememh("check.mem", mem);
 
      end
 endtask
 
   task Write_slave2;
-     //	   reg [7:0]mem [0:15];
+        reg [7:0]mem [0:15];
 
      begin
  	
@@ -97,20 +97,20 @@ endtask
 	        data = i;
 		apb_write_paddr = {1'b1,data};
 		apb_write_data = i;
-	//	mem[i] = i;
+		mem[i] = i;
 		
 
 	 end 
 	end
-   //	 $writememh("check.mem", mem);
+        $writememh("check.mem", mem);
      end
 endtask
 
 
 		 
   task Read_slave1;
-     //	  reg [7:0]expected_data;
-     //	   reg [7:0]mem [0:15];
+     	  reg [7:0]expected_data;
+     	   reg [7:0]mem [0:15];
 
       begin 
 	for (j = 0;  j< 8; j= j+1)
@@ -119,7 +119,7 @@ endtask
           begin  
 	  data = j; 
 	  apb_read_paddr = {1'b0,data};
-      //	  expected_data = mem[j];
+      	  expected_data = mem[j];
          end
         end
       end
@@ -127,8 +127,8 @@ endtask
 
 
  task Read_slave2;
-      //	 reg [7:0]expected_data;
-      //	 reg [7:0]mem [0:15];
+      	 reg [7:0]expected_data;
+      	 reg [7:0]mem [0:15];
       begin 
 	for (j = 0;  j< 8; j= j+1)
         begin
@@ -136,8 +136,8 @@ endtask
           begin
 	   data = j;	  
 	  apb_read_paddr = {1'b1,data};
-      //	  expected_data = mem[j];
-      //	  $display("%d",expected_data);
+      	  expected_data = mem[j];
+      	  $display("%d",expected_data);
          end
         end
       end
