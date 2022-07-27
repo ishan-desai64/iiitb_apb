@@ -440,7 +440,7 @@ module apb_testbench;
    initial
    begin
        $dumpfile("dump.vcd");
-       $dumpvars;
+       $dumpvars(0,iiitb_apb);
    end
  
    // Test the transaction
