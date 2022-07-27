@@ -436,15 +436,7 @@ module apb_testbench;
     #500;
     $finish;
   end
- 
-   initial
-   begin
-     $dumpfile(0,"dump.vcd");
-       $dumpvars;
-   end
- 
-   // Test the transaction
-   initial
+  initial
    begin  
  `ifdef TEST1_WR_RD
      @(negedge sys_reset);
@@ -508,6 +500,15 @@ module apb_testbench;
      
 
    end
+ 
+   initial
+   begin
+     $dumpfile(0,"dump.vcd");
+       $dumpvars;
+   end
+ 
+   // Test the transaction
+   
 
  
 endmodule
