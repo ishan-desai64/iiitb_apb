@@ -64,11 +64,11 @@
 			    PENABLE =0;
 
 			    if(READ_WRITE) 
-				 //     @(posedge PCLK)
+				    @(posedge PCLK)
 	                       begin   PADDR = apb_read_paddr; end
 			    else 
 			      begin   
-			          //@(posedge PCLK)
+			          @(posedge PCLK)
                                   PADDR = apb_write_paddr;
 				  PWDATA = apb_write_data;  end
 			    
@@ -101,20 +101,20 @@
 		             else next_state = IDLE;
 			 end
 			   
-		        /* if(transfer && !PREADY && READ_WRITE)
+		         if(transfer && !PREADY && READ_WRITE)
                              begin
-                              //   repeat(3) @(posedge PCLK)  
-                		// begin
-			          //  if(!transfer)
-                                    //  next_state = IDLE;
-		                    //else 
-                                      // begin
-                                        //if(PREADY) begin
-                                          //  next_state = SETUP;
-                                            //apb_read_data_out = PRDATA; end
-                                        //else
+                                repeat(3) @(posedge PCLK)  
+                		 begin
+			            if(!transfer)
+                                     next_state = IDLE;
+		                    else 
+                                       begin
+                                        if(PREADY) begin
+                                            next_state = SETUP;
+                                            apb_read_data_out = PRDATA; end
+                                        else
                                             next_state = ENABLE;
-				       //end 
+				       end 
                                 end
 		            end
 
@@ -126,14 +126,14 @@
                                                     
 		       else if(transfer && !PREADY && !READ_WRITE)
                                    begin
-                                   //   repeat(3) @(posedge PCLK)                                          
-			             //   begin
-			               // if(!transfer)
-                                    //     next_state = IDLE;
-				      //  else begin
-				        //  if(PREADY) 
-					  //   next_state = SETUP;
-				          //else
+                                      repeat(3) @(posedge PCLK)                                          
+			                begin
+			                if(!transfer)
+                                         next_state = IDLE;
+				        else begin
+				          if(PREADY) 
+					     next_state = SETUP;
+				          else
 						  next_state = ENABLE;
 				         end
 			             end 
@@ -151,7 +151,7 @@
           end
 
 
- /*     always @(posedge PCLK) 
+    always @(posedge PCLK) 
 
       begin
 	       PWRITE = ~READ_WRITE;
@@ -180,7 +180,7 @@
       end */
      assign {PSEL1,PSEL2} = ((state != IDLE) ? (PADDR[8] ? {1'b0,1'b1} : {1'b1,1'b0}) : 2'd0);
 
-  // PSLVERR LOGIC
+   PSLVERR LOGIC
   
   always @(*)
        begin
