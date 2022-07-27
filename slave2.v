@@ -52,7 +52,7 @@ module slave2(
            else PREADY = 0;
         end
     endmodule
- /*  reg [7:0]mem[0:63];
+   reg [7:0]mem[0:63];
   
  integer i;
  
@@ -63,13 +63,13 @@ module slave2(
              #1;
      end
    end
-       // repeat(100)
-       // begin #50 mem[$random] = {$random}; end
+        repeat(100)
+        begin #50 mem[$random] = {$random}; end
   
-*/
-   // assign PRDATA2 = (PSEL && PENABLE && PWRITE) ? mem[reg_addr] : 8'dz;
-   // ram dhy(PRDATA2,PWDATA,P,PWRITE,PREADY);
-/*
+
+    assign PRDATA2 = (PSEL && PENABLE && PWRITE) ? mem[reg_addr] : 8'dz;
+    ram dhy(PRDATA2,PWDATA,P,PWRITE,PREADY);
+
 module ram(data_out, data_in,addr,PWRITE,PREADY);
  
  parameter ddr_size = 8, word_size = 8, memory_size = 64;
@@ -86,8 +86,8 @@ assign data_out = PREADY ? mem[addr] : 8'bz;
 always @(PWRITE,PREADY)
  if(PWRITE) mem[addr] = data_in;
 
-endmodule*/
-/*
+endmodule
+
 module RAM_test;
 
  reg [7:0]address;
@@ -107,8 +107,8 @@ ram rgd(data_out, data_in,address,write,select);
         end
 initial myseed = 35;
 
-endmodule */
-/*    always @(PWRITE,PREADY)
+endmodule 
+   always @(PWRITE,PREADY)
           if(PWRITE & PREADY) mem[PADDR] = PWDATA;
 
   always @(posedge PCLK)
@@ -157,6 +157,6 @@ endmodule */
 
 
 	endmodule
-*/
+
 
         
