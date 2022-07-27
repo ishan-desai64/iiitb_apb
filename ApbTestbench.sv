@@ -439,7 +439,7 @@ module apb_testbench;
  
    initial
    begin
-       $dumpfile("dump.vcd");
+     $dumpfile(0,"dump.vcd");
        $dumpvars;
    end
  
