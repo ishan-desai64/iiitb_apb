@@ -13,7 +13,7 @@
 
 //`include "check.mem"
 
-  module test;
+  module iiitb_apb_tb;
  
   reg PCLK,PRESETn,transfer,READ_WRITE;
   reg [8:0]apb_write_paddr;
@@ -25,7 +25,7 @@
 
   reg [7:0]mem[0:15];
   
-  APB_Protocol dut_c(  PCLK,
+  iiitb_apb dut_c(  PCLK,
 	               PRESETn,
 		       transfer,
 		       READ_WRITE,
