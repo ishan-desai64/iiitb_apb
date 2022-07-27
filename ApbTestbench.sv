@@ -499,8 +499,8 @@ module apb_testbench;
  
    initial
    begin
-     $dumpfile(0,"dump.vcd");
-       $dumpvars;
+     $dumpfile("dump.vcd");
+     $dumpvars(0,iiitb_apb);
    end
  
    // Test the transaction
