@@ -11,7 +11,7 @@
 
 `timescale 1ns/1ns
 
-//`include "check.mem"
+`include "check.mem"
 
   module iiitb_apb_tb;
  
