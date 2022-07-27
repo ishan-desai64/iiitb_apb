@@ -437,11 +437,7 @@ module apb_testbench;
     $finish;
   end
  
-   initial
-   begin
-       $dumpfile("dump.vcd");
-     $dumpvars(0,apb_testbench);
-   end
+   
  
    // Test the transaction
    initial
@@ -507,6 +503,16 @@ module apb_testbench;
 `endif
      
 
+   end
+  initial
+  begin
+    #500;
+    $finish;
+  end
+  initial
+   begin
+       $dumpfile("dump.vcd");
+     $dumpvars(0,apb_testbench);
    end
 
  
