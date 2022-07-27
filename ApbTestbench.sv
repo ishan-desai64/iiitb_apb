@@ -431,11 +431,7 @@ module apb_testbench;
 
 
   // initial block to end the simulation
-  initial
-  begin
-    #500;
-    $finish;
-  end
+  
   initial
    begin  
  `ifdef TEST1_WR_RD
