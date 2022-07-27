@@ -19,7 +19,7 @@
 
 
 
-module APB_Protocol(
+module iiitb_apb(
                  input PCLK,PRESETn,transfer,READ_WRITE,
                  input [8:0] apb_write_paddr,
 		 input [7:0]apb_write_data,
