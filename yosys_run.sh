@@ -1,6 +1,6 @@
 # read design
 
-read_verilog 32bit_carry_ripple_adder.v
+read_verilog iiitb_apb.v
 
 # generic synthesis
 synth -top ripple_carry_adder
